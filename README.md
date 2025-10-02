@@ -128,8 +128,11 @@ db.theatres.find(
 	•	Documentación de consultas en formato Markdown para trazabilidad del proyecto.
 
 
+
 Tecnologías utilizadas:
 	•	MongoDB
+	
 	•	Mongo Shell
+	
 	•	MongoDB Compass
 
