@@ -118,9 +118,13 @@ db.theatres.find(
 
 3. Buenas prácticas aplicadas
 	•	Uso de filtros con operadores lógicos ($and, $or, $gte, $lte).
+
 	•	Consultas agregadas con $group y $match para obtener métricas.
+
 	•	Normalización parcial de datos en campos multivalor (géneros, idiomas, premios).
+
 	•	Exportación de resultados a GeoJSON para visualización geoespacial.
+
 	•	Documentación de consultas en formato Markdown para trazabilidad del proyecto.
 
 
