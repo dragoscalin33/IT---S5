@@ -117,6 +117,7 @@ db.theatres.find(
 
 
 3. Buenas prácticas aplicadas
+   
 	•	Uso de filtros con operadores lógicos ($and, $or, $gte, $lte).
 
 	•	Consultas agregadas con $group y $match para obtener métricas.
@@ -130,6 +131,7 @@ db.theatres.find(
 
 
 Tecnologías utilizadas:
+
 	•	MongoDB
 	
 	•	Mongo Shell
