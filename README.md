@@ -129,8 +129,7 @@ db.theatres.find(
 	•	Documentación de consultas en formato Markdown para trazabilidad del proyecto.
 
 
-
-Tecnologías utilizadas:
+4. Tecnologías utilizadas:
 
 	•	MongoDB
 	
