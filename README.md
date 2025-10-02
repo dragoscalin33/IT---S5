@@ -38,7 +38,7 @@ Ejemplo de inserción de documento en la colección *movies*:
 
 2. Consultas realizadas
 
-🔹 Nivel 1
+Nivel 1
 	•	Mostrar los 2 primeros comentarios de la base de datos.
 	•	Número total de usuarios registrados.
 	•	Número de cines en California.
@@ -46,14 +46,15 @@ Ejemplo de inserción de documento en la colección *movies*:
 	•	Número de películas de comedia en la base de datos.
 
 Ejemplo de consulta:
-
+```
 db.comments.find().limit(2);
 
 db.users.countDocuments();
-
+```
 
 	•	Películas producidas en 1932 cuyo género sea drama o estén en francés.
 
+```
 db.movies.find({
   year: 1932,
   $or: [
@@ -62,46 +63,55 @@ db.movies.find({
   ]
 });
 
+```
 
 	•	Películas estadounidenses con entre 5 y 9 premios producidas entre 2012 y 2014.
 
+```
 db.movies.find({
   countries: "USA",
   "awards.wins": { $gte: 5, $lte: 9 },
   year: { $gte: 2012, $lte: 2014 }
 });
 
+```
 
-🔹 Nivel 2
+Nivel 2
 	•	Número de comentarios escritos por usuarios con correo del dominio GAMEOFTHRON.ES.
+```
 
 db.comments.aggregate([
   { $match: { email: /@GAMEOFTHRON\.ES$/ } },
   { $group: { _id: "$email", total: { $sum: 1 } } }
 ]);
-
+```
 	•	Número de cines en cada código postal de Washington D.C.
 
+```
 db.theatres.aggregate([
   { $match: { "location.address.state": "DC" } },
   { $group: { _id: "$location.address.zipcode", total: { $sum: 1 } } }
 ]);
+```
 
-
-🔹 Nivel 3
+Nivel 3
 	•	Películas dirigidas por John Landis con puntuación IMDb entre 7.5 y 8.
 
+```
 db.movies.find({
   directors: "John Landis",
   "imdb.rating": { $gte: 7.5, $lte: 8 }
 });
+```
 
 	•	Mostrar en un mapa la ubicación de todos los teatros:
 
+```
 db.theatres.find(
   { "location.geo": { $exists: true } },
   { "location.geo": 1, _id: 0 }
 );
+```
 
 (Se puede exportar a GeoJSON y visualizar en MongoDB Compass o en herramientas de mapas).
 
@@ -114,10 +124,8 @@ db.theatres.find(
 	•	Documentación de consultas en formato Markdown para trazabilidad del proyecto.
 
 
-📂 Tecnologías utilizadas:
+Tecnologías utilizadas:
 	•	MongoDB
 	•	Mongo Shell
 	•	MongoDB Compass
 
-
-¿Quieres que lo deje solo con **las consultas enunciadas** (más corto y directo, como guía de ejercicios) o prefieres esta versión **explicada y con ejemplos de código** como el del proyecto SQL?
